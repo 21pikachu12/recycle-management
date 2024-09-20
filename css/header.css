@@ -1,0 +1,22 @@
+.login-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; 
+}
+
+.login-dropdown a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+ 
+.nav-link:hover + .login-dropdown, .login-dropdown:hover {
+    display: block;
+    opacity: 1;
+}

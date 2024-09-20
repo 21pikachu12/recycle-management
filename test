@@ -1,0 +1,92 @@
+<?php
+ include '_db.php';
+    
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch user details for garbage collection
+$sql = "SELECT user_name, user_address FROM garbage_bookings WHERE user_id = {$_SESSION['user_id']}"; // Assuming you have user_id stored in a session
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $user_name = $row["user_name"];
+    $user_address = $row["user_address"];
+} else {
+    // Handle the case when no booking is found for the user
+    $user_name = "N/A";
+    $user_address = "N/A";
+}
+
+// Close the database connection
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garbage Collection Details</title>
+    <style>
+    /* Your CSS styles go here */
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Garbage Collection Details</h2>
+
+        <p><strong>User Name:</strong> <?php echo $user_name; ?></p>
+        <p><strong>User Address:</strong> <?php echo $user_address; ?></p>
+
+        <!-- Additional information or formatting can be added here -->
+
+    </div>
+
+</body>
+
+</html><?php
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Assuming you have a form that posts user name and address
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user_id = $_SESSION['user_id']; // Assuming you have user_id stored in a session
+    $user_name = $_POST["user_name"];
+    $user_address = $_POST["user_address"];
+
+    // Check if the user has an existing booking
+    $check_sql = "SELECT * FROM garbage_bookings WHERE user_id = $user_id";
+    $check_result = $conn->query($check_sql);
+
+    if ($check_result->num_rows > 0) {
+        // If the user has an existing booking, update the address
+        $update_sql = "UPDATE garbage_bookings SET user_name = '$user_name', user_address = '$user_address' WHERE user_id = $user_id";
+        if ($conn->query($update_sql) === TRUE) {
+            echo "Address updated successfully";
+        } else {
+            echo "Error updating address: " . $conn->error;
+        }
+    } else {
+        // If the user doesn't have an existing booking, insert a new record
+        $insert_sql = "INSERT INTO garbage_bookings (user_id, user_name, user_address) VALUES ($user_id, '$user_name', '$user_address')";
+        if ($conn->query($insert_sql) === TRUE) {
+            echo "Booking successful";
+        } else {
+            echo "Error booking: " . $conn->error;
+        }
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>

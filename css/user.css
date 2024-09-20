@@ -1,0 +1,83 @@
+    /* Reset some default styles */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make sure the body takes up at least the full viewport height */
+}
+header {
+    background-color: #124e83;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background-color: #1a974e;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav li {
+    display: inline;
+    margin: 10px 86px 10px 57px;
+    position: relative;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Style for the dropdown */
+ .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    z-index: 1;
+    min-width: 160px;
+    top: 100%; /* Position the dropdown below the parent */
+    left: 50%; /* Center the dropdown relative to the parent */
+    transform: translateX(-50%); /* Center-align the dropdown */
+}
+.dropdown-content li {
+    display: block;
+    margin: 0;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 10px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    flex-grow: 1; /* Allow this section to grow and push the footer down */
+    background-image: url("/eva/images/bg.jpg");
+    background-size:100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}

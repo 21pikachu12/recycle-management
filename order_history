@@ -1,0 +1,205 @@
+/* Reset default browser styles */
+html, body, h1, h2, p, ul, li, a {
+margin: 0;
+padding: 0;
+}
+
+/* Set a background color and font for the whole page */
+body {
+font-family: Arial, sans-serif;
+background-color: #f0f0f0;
+display: flex;
+flex-direction: column;
+min-height: 100vh; /* Make sure the body takes up at least the full viewport height */
+}
+
+/* Style the header with a navigation bar */
+header {
+background-color: #007BFF;
+color: #fff;
+padding: 15px 0;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 100;
+}
+
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+nav .logo {
+font-size: 24px;
+}
+
+nav ul {
+list-style: none;
+display: flex;
+}
+
+nav ul li {
+margin-right: 20px;
+}
+
+nav a {
+text-decoration: none;
+color: #fff;
+font-weight: 600;
+}
+
+/* Style the hero section */
+#hero {
+background-image: url('hero-image.jpg'); /* Set your hero image here */
+background-size: cover;
+background-position: center;
+color: #fff;
+text-align: center;
+padding: 200px 0;
+}
+
+#hero h1 {
+font-size: 36px;
+}
+
+#hero p {
+font-size: 18px;
+margin-top: 20px;
+}
+
+#hero .btn {
+display: inline-block;
+background-color: #007BFF;
+color: #fff;
+padding: 10px 20px;
+text-decoration: none;
+border-radius: 5px;
+margin-top: 20px;
+transition: background 0.3s;
+}
+
+#hero .btn:hover {
+background: #0056b3;
+}
+
+/* Style the sections (About, Services, Contact) */
+section {
+padding: 60px 0;
+background-color: #fff;
+}
+
+section h2 {
+font-size: 24px;
+text-align: center;
+}
+
+section p {
+font-size: 18px;
+text-align: center;
+margin-top: 20px;
+}
+
+/* Style the footer */
+footer {
+background-color: #333;
+color: #fff;
+text-align: center;
+padding: 10px 0;
+}
+
+/* Style buttons */
+.btn {
+background-color: #007BFF;
+color: #fff;
+padding: 10px 20px;
+text-decoration: none;
+border-radius: 5px;
+transition: background 0.3s;
+}
+
+.btn:hover {
+background: #0056b3;
+}
+
+/* Style the "Signup" and "Login" buttons */
+nav .btn {
+background-color: #007BFF;
+color: #fff;
+padding: 10px 20px;
+text-decoration: none;
+border-radius: 5px;
+margin-left: 10px;
+}
+
+nav .btn:hover {
+background: #0056b3;
+}
+
+/* Improved form styles */
+.login-container, .signup-container {
+background: #fff;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+padding: 20px;
+width: 300px;
+text-align: center;
+margin: 0 auto;
+}
+
+.login-container h2, .signup-container h1 {
+font-size: 24px;
+}
+
+.login-container form, .signup-container form {
+display: flex;
+flex-direction: column;
+}
+
+.login-container input, .signup-container input {
+margin: 10px 0;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+.login-container input[type="submit"], .signup-container button {
+background: #007BFF;
+color: #fff;
+cursor: pointer;
+transition: background 0.3s;
+border: none;
+padding: 10px;
+border-radius: 3px;
+}
+
+.login-container input[type="submit"]:hover, .signup-container button:hover {
+background: #0056b3;
+}
+
+.signup-container p {
+margin-top: 10px;
+}
+
+.signup-container a {
+text-decoration: none;
+color: #007BFF;
+}
+
+.signup-container {
+background: #fff;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+padding: 20px;
+width: 300px;
+text-align: center;
+margin: 0 auto; /* Center the container horizontally */
+position: absolute;
+top: 50%; /* Position it at 50% from the top of the viewport */
+left: 50%; /* Position it at 50% from the left of the viewport */
+transform: translate(-50%, -50%); /* Center it both horizontally and vertically */
+}
